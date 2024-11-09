@@ -20,7 +20,7 @@ Follow these steps to get started with MySQL-DataBridge:
 
 ```python
 
-from mysql_module import MySQLModule
+from MySQL-DataBridge import MySQLModule
 
 ```
 
