@@ -1,10 +1,10 @@
-Project Descriptions
+# Project Descriptions
 
-MySQL-DataBridge
+## MySQL-DataBridge
 
 MySQL-DataBridge is a lightweight Python module designed to simplify MySQL database connections, database creation, and table management. With easy-to-use methods, you can streamline interactions with MySQL databases in your projects.
 
-## Installation
+# Installation
 
 To install MySQL-DataBridge, use the following command:
 
@@ -24,7 +24,7 @@ from MySQL-DataBridge import MySQLModule
 
 ```
 
-# Initialize the Module
+### Initialize the Module
 
 Create an instance of the MySQLModule class, providing your MySQL hostname, username, and password:
 
@@ -44,7 +44,7 @@ connection = db.connect_to_database()
 
 ```
 
-# Create a New Database
+## Create a New Database
 
 Use the create_database method to create a new database:
 
@@ -54,7 +54,7 @@ db.create_database("your_database_name")
 
 ```
 
-# Set the Database and Reconnect
+## Set the Database and Reconnect
 
 After creating or selecting a database, specify it and reconnect:
 
@@ -65,9 +65,9 @@ db.connect_to_database()
 
 ```
 
-    Replace 'your_database_name_here' with your database name
+Replace 'your_database_name_here' with your database name
 
-# Create a Table
+## Create a Table
 
 Define a table schema using an SQL CREATE TABLE statement and use the create_table method to create it:
 
@@ -91,14 +91,11 @@ db.create_table(create_my_table, my_table_name)
 
 ```
 
-## Important Notes
-
-    Database Name: Replace "your_database_name_here" with the name of your desired database.
-    Table Name: Replace "your_table_name" in both the CREATE TABLE statement and my_table_name variable.
-    Columns: Customize the CREATE TABLE statement to include all columns and data types your table needs.
+# Important Notes
+Database Name: Replace "your_database_name_here" with the name of your desired database. Table Name: Replace "your_table_name" in both the CREATE TABLE statement and my_table_name variable.Columns: Customize the CREATE TABLE statement to include all columns and data types your table needs.
 
 
-# Displaying All Databases
+## Displaying All Databases
 
 ```python
 
@@ -110,10 +107,10 @@ if databases:
 
 ```
 
-# Explanation:
-   This code snippet calls the show_databases() method to retrieve a list of all databases available on the connected MySQL server. It checks if the result is not empty and then iterates through the list, printing each database name. Ensure that you have an active connection to the MySQL server before running this code.
+## Explanation:
+This code snippet calls the show_databases() method to retrieve a list of all databases available on the connected MySQL server. It checks if the result is not empty and then iterates through the list, printing each database name. Ensure that you have an active connection to the MySQL server before running this code.
 
-# Connecting to the Database and Showing Tables
+## Connecting to the Database and Showing Tables
 
 ```python
 
@@ -126,10 +123,10 @@ else:
 
 ```
 
-# Explanation:
-   This code first attempts to connect to the MySQL server using the connect_to_database() method. If the connection is successful, it prints a confirmation message and calls the show_tables() method, which will display the tables within the selected database. If the connection fails, an error message is displayed.
+## Explanation:
+This code first attempts to connect to the MySQL server using the connect_to_database() method. If the connection is successful, it prints a confirmation message and calls the show_tables() method, which will display the tables within the selected database. If the connection fails, an error message is displayed.
 
-# Inserting Data Using String Methods
+## Inserting Data Using String Methods
 
 ```python
 
@@ -143,10 +140,10 @@ db.insert_data_with_builtins_methods(table_name, columns, values)
 
 ```
 
-# Explanation:
-   This snippet demonstrates how to insert a single row of data into a specified table using string transformation methods (e.g., converting strings to lowercase or uppercase). Replace table_name, columns, and values with the appropriate table and data values for your database. Ensure that numeric data is written without quotation marks.
+## Explanation:
+This snippet demonstrates how to insert a single row of data into a specified table using string transformation methods (e.g., converting strings to lowercase or uppercase). Replace table_name, columns, and values with the appropriate table and data values for your database. Ensure that numeric data is written without quotation marks.
 
-# Inserting Data Without String Transformations
+## Inserting Data Without String Transformations
 
 ```python
 
@@ -160,11 +157,10 @@ db.insert_data_only_with_builtins(table_name, columns, values)
 
 ```
 
-# Explanation:
+## Explanation:
+This code shows how to insert a single row of data without applying any string methods. Replace table_name, columns, and values with your specific table and data.Ensure  that numerical values are unquoted.
 
-  This code shows how to insert a single row of data without applying any string methods. Replace table_name, columns, and values with your specific table and data. Ensure that numerical values are unquoted.
-
-# Inserting Multiple Rows of Data
+## Inserting Multiple Rows of Data
 
 ```python
 
@@ -183,11 +179,10 @@ db.insert_mul_val_data_without(table_name, columns, values_list)
 
 ```
 
-# Explanation:
-
-  This snippet inserts multiple rows of data into the specified table. Customize table_name, columns, and values_list with your data. This method is ideal for bulk inserts. Ensure that numeric data does not have quotation marks.
+## Explanation:
+This snippet inserts multiple rows of data into the specified table. Customize table_name, columns, and values_list with your data. This method is ideal for bulk inserts.Ensure that numeric data does not have quotation marks.
  
-#  Inserting Multiple Rows with Error Handling
+##  Inserting Multiple Rows with Error Handling
 
 ```python
 
@@ -209,11 +204,10 @@ except Exception as e:
 
 ```
 
-# Explanation:
+## Explanation:
+This example is similar to the previous one but includes error handling. The try-except block ensures that any issues during the data insertion process (e.g., database errors or constraint violations) are caught, and a descriptive error message is printed.
 
-  This example is similar to the previous one but includes error handling. The try-except block ensures that any issues during the data insertion process (e.g., database errors or constraint violations) are caught, and a descriptive error message is printed.
-
-# Inserting Multiple Rows of Data with Set Operations
+## Inserting Multiple Rows of Data with Set Operations
 
 ```python
 
@@ -232,11 +226,10 @@ db.insert_mul_val_data_with(table_name, columns, values_list)
 
 ```
 
-# Explanation:
+## Explanation:
+This code inserts multiple rows into a table using set operations. Replace table_name, columns, and values_list with your specific table name, column names, and data. Ensure numeric data types are entered without quotes.
 
-    This code inserts multiple rows into a table using set operations. Replace table_name, columns, and values_list with your specific table name, column names, and data. Ensure numeric data types are entered without quotes.
-
-# Selecting and Sorting Data
+## Selecting and Sorting Data
 
 ```python
 
@@ -244,11 +237,10 @@ db.select_and_sort_data("your_table_name_here", 3)  # Replace '3' with the colum
 
 ```
 
-# Explanation:
+## Explanation:
+This snippet calls the select_and_sort_data() method to retrieve and sort data from a specific table. Replace "your_table_name_here" with your table's name, and 3 with the appropriate column index for sorting.
 
-    This snippet calls the select_and_sort_data() method to retrieve and sort data from a specific table. Replace "your_table_name_here" with your table's name, and 3 with the appropriate column index for sorting.
-
-# Printing Data as a List
+## Printing Data as a List
 
 ```python
 
@@ -256,11 +248,10 @@ db.print_data_as_list_only("your_table_name_here")
 
 ```
 
-# Explanation:
+## Explanation:
+The print_data_as_list_only() function prints the data from a specified table in a simple list format. Replace "your_table_name_here" with the name of your table to view its data.
 
-    The print_data_as_list_only() function prints the data from a specified table in a simple list format. Replace "your_table_name_here" with the name of your table to view its data.
-
-# Applying List Methods to Print Data
+## Applying List Methods to Print Data
 
 ```python
 
@@ -271,11 +262,10 @@ db.print_data_as_list_with_M(table_name)
 
 ```
 
-# Explanation:
+## Explanation:
+This function prints data from a table while applying list-specific methods for formatting or transformation. Replace table_name with your actual table name.
 
-    This function prints data from a table while applying list-specific methods for formatting or transformation. Replace table_name with your actual table name.
-
-# Executing an Aggregate Query
+## Executing an Aggregate Query
 
 ```python
 
@@ -291,9 +281,8 @@ print(result)
 
 ```
 
-# Explanation:
-
-    Use this code to run aggregate queries, such as calculating averages or sums, grouped by specific columns. Replace your_column_name_1, your_column_name_2, and your_table_name with appropriate values from your database schema.
+## Explanation:
+Use this code to run aggregate queries, such as calculating averages or sums, grouped by specific columns. Replace your_column_name_1, your_column_name_2, and your_table_name with appropriate values from your database schema.
 
 # Interactive MySQL Query Options
 
@@ -336,14 +325,13 @@ while True:
 
 ```
 
-# Explanation: 
-
-    This interactive script provides users with options to perform various MySQL queries. Users can:
-
-    Select with specific conditions.
-    Select data within a specific range.
-    Use LIKE to search for patterns.
-    Round column values to a specified number of decimal places.
+## Explanation: 
+This interactive script provides users with options to perform various MySQL queries. Users can:
+   
+Select with specific conditions.
+Select data within a specific range.
+Use LIKE to search for patterns.
+Round column values to a specified number of decimal places.
 
 # Joining Two Tables
 
@@ -356,33 +344,31 @@ columns1 = ['your_table_1_column_1', 'your_table_1_column_2', ...]
 
 ```
 
-# Explanation:
-     This snippet sets up a join between two tables based on a specified condition. Replace table1, table2, join_condition, and columns1 with your table names, join condition, and column names. Use this when combining data from multiple tables using an SQL JOIN operation.
+## Explanation:
+This snippet sets up a join between two tables based on a specified condition. Replace table1, table2, join_condition, and columns1 with your table names, join condition, and column names. Use this when combining data from multiple tables using an SQL JOIN operation.
 
-# INNER JOIN
+## INNER JOIN
 
 The join_tables() function can be used to perform an INNER JOIN, which retrieves only the rows where there is a match between the specified columns in both tables.
 
-    Purpose: Returns only the rows that have matching values in both table1 and table2. Rows without matches are not included in the result.
+Purpose: Returns only the rows that have matching values in both table1 and table2. Rows without matches are not included in the result.
 
-# LEFT JOIN
-
+## LEFT JOIN
 The left_join_tables() function performs a LEFT JOIN, which returns all rows from table1 (left table) and matched rows from table2 (right table). Rows in table1 without a corresponding match in table2 will show NULL values for columns from table2.
 
-    Purpose: Retrieves all rows from table1 and matched rows from table2. Non-matching rows from table2 will have NULL values.
+Purpose: Retrieves all rows from table1 and matched rows from table2. Non-matching rows from table2 will have NULL values.
 
-# RIGHT JOIN
+## RIGHT JOIN
 The right_join_tables() function performs a RIGHT JOIN, which returns all rows from table2 (right table) and matched rows from table1 (left table). Rows in table2 without a corresponding match in table1 will show NULL values for columns from table1.
 
-    Purpose: Retrieves all rows from table2 and matched rows from table1. Non-matching rows from table1 will have NULL values.
+Purpose: Retrieves all rows from table2 and matched rows from table1. Non-matching rows from table1 will have NULL values.
 
 
-## Note: 
+# Note: 
+Make sure to replace placeholders like your_table_1_name_here, your_table_1_column_name, etc., with actual table and column names relevant to your database.
 
-     Make sure to replace placeholders like your_table_1_name_here, your_table_1_column_name, etc., with actual table and column names relevant to your database.
 
-
-# DROP Table Operation
+## DROP Table Operation
 
 The drop_table() function is used to delete an entire table from the database. Use this function carefully, as dropping a table will remove all the data and its structure permanently.
 
@@ -395,11 +381,10 @@ db.drop_table(table_name_for_drop)
 
 ```
 
-# Explanation:
+## Explanation:
+This snippet demonstrates how to drop a table from your database using the drop_table() function. Replace 'your_table_here_to_drop' with the name of the table you wish to remove. Use this when you need to delete an entire table from your database.
 
-     This snippet demonstrates how to drop a table from your database using the drop_table() function. Replace 'your_table_here_to_drop' with the name of the table you wish to remove. Use this when you need to delete an entire table from your database.
-
-# Execute a Custom SELECT Query
+## Execute a Custom SELECT Query
 
 The execute_query() function allows you to run a custom SQL query. This can be useful for retrieving specific data from your table.
 
@@ -414,11 +399,10 @@ db.execute_query(query)
 
 ```
 
-# Explanation:
+## Explanation:
+This code is used for executing a custom SELECT query. Replace column1, column2, column3, and your_table_name with your desired columns and table name. This allows you to retrieve specific columns from a table.
 
-    This code is used for executing a custom SELECT query. Replace column1, column2, column3, and your_table_name with your desired columns and table name. This allows you to retrieve specific columns from a table.
-
-# Complex Operations
+## Complex Operations
 
 The complex_operation() function performs advanced operations on the specified table. This could involve a series of custom operations or data transformations defined within the method.
 
@@ -428,11 +412,10 @@ db.complex_operation(table_name)
 
 ```
 
-# Explanation:
+## Explanation:
+The complex_operation() function is designed to execute complex SQL operations on a specified table. Replace table_name with the name of your table. This function is ideal for running pre-defined complex SQL tasks that involve multiple steps.
 
-    The complex_operation() function is designed to execute complex SQL operations on a specified table. Replace table_name with the name of your table. This function is ideal for running pre-defined complex SQL tasks that involve multiple steps.
-
-# SELECT with COALESCE
+## SELECT with COALESCE
 
 The select_with_coalesce() function is used to select values from a column, replacing any NULL values with a default value.
 
@@ -448,11 +431,10 @@ db.select_with_coalesce(table_name, column_name, default_value)
 
 ```
 
-# Explanation:
-    
-     This code block retrieves data from a specified column, using COALESCE to return a default value when NULL is encountered. Replace your_table_name, your_column_name, and your_default_value as needed.
+## Explanation:
+This code block retrieves data from a specified column, using COALESCE to return a default value when NULL is encountered. Replace your_table_name, your_column_name, and your_default_value as needed.
 
-# SELECT Distinct Values
+## SELECT Distinct Values
 
 The select_with_distinct() function retrieves distinct values from a specified column, eliminating duplicate results.
 
@@ -467,10 +449,10 @@ db.select_with_distinct(table_name, column_name_for_distinct)
 
 ```
 
-# Explanation:
-     This snippet fetches unique values from a specified column in a table. Replace your_table_name and your_column_name to customize it for your needs. Use this to eliminate duplicate entries in your query results.
+## Explanation:
+This snippet fetches unique values from a specified column in a table. Replace your_table_name and your_column_name to customize it for your needs. Use this to eliminate duplicate entries in your query results.
 
-# UPDATE Data in a Table
+## UPDATE Data in a Table
 
 The update_data() function is used to update specific rows in a table based on a given condition.
 
@@ -491,10 +473,10 @@ db.update_data(update_query, values_list)
 
 ```
 
-# Explanation: 
-    This code updates data in a specified table. Replace your_table_name, your_column_name, and your_id_column with the appropriate table and column names. The values_list specifies the new data and the row to update.
+## Explanation: 
+This code updates data in a specified table. Replace your_table_name, your_column_name, and your_id_column with the appropriate table and column names. The values_list specifies the new data and the row to update.
 
-# Fetch All Data from a Table
+## Fetch All Data from a Table
 
 The select_data() function is used to execute a SELECT query and print all the retrieved records.
 
@@ -512,11 +494,10 @@ for row in results:
 
 ```
 
-# Explanation:
+## Explanation:
+This snippet retrieves all rows and columns from a specified table. Replace your_table_name with the name of the table you want to query. The results are printed row by row.
 
-    This snippet retrieves all rows and columns from a specified table. Replace your_table_name with the name of the table you want to query. The results are printed row by row.
-
-# Concatenate Columns in a SELECT Query
+## Concatenate Columns in a SELECT Query
 
 The select_data() function can also be used to concatenate columns for formatted output, such as full names.
 
@@ -534,11 +515,10 @@ for row in results:
 
 ```
 
-# Explanation:
-    
-    This code uses the CONCAT function to merge columns into a single string. Replace your_table_name_here, column_name_1, and column_name_2 as needed. This is helpful for formatting full names or similar combinations.
+## Explanation:
+This code uses the CONCAT function to merge columns into a single string. Replace your_table_name_here, column_name_1, and column_name_2 as needed. This is helpful for formatting full names or similar combinations.
 
-# SELECT with Conditions
+## SELECT with Conditions
 
 The select_data() function can be used to fetch data based on specific conditions.
 
@@ -556,11 +536,10 @@ for row in results:
 
 ```
 
-# Explanation:
-    
-    This code filters results based on specific conditions. Replace your_table_name, your_salary_value, your_age_value, and your_id_value with the actual table name and filter criteria. This is ideal for retrieving conditional data from your table.
+## Explanation:
+This code filters results based on specific conditions. Replace your_table_name, your_salary_value, your_age_value, and your_id_value with the actual table name and filter criteria. This is ideal for retrieving conditional data from your table.
 
-# SELECT Query to Filter Names Starting with a Specific Letter
+## SELECT Query to Filter Names Starting with a Specific Letter
 
 The select_data() function can be used to execute a query that retrieves rows where a specified column's values start with a particular letter.
 
@@ -580,7 +559,7 @@ for row in results:
 
 Purpose: This code filters records in your_table_name where your_column_name starts with 'B'. This function is helpful for identifying and analyzing data with a specific pattern, such as customers or products whose names begin with a specific letter.
 
-# SELECT Query to Filter Ages Within a Range
+## SELECT Query to Filter Ages Within a Range
 
 The select_data() function can be used to execute a query that retrieves rows where a column value falls within a specified range.
 
@@ -600,7 +579,7 @@ for row in results:
 
 Purpose: This code snippet selects records where the age column value is between your_min_age and your_max_age. It is useful for demographic analysis or filtering data based on specific age criteria.
 
-# SELECT Query to Filter Specific Values
+## SELECT Query to Filter Specific Values
 
 The select_data() function can be used to execute a query that retrieves rows where a column matches any value in a given list.
 
@@ -620,7 +599,7 @@ for row in results:
 
 Purpose: This query helps select records where your_column_name matches any value in the specified list. It is ideal for filtering records for a set of known attributes or categories.
 
-# UNION Query to Combine Results from Two Tables
+## UNION Query to Combine Results from Two Tables
 
 The select_data() function can be used to execute a UNION query that combines the result sets of two SELECT statements.
 
@@ -645,7 +624,7 @@ for row in union_results:
 
 Purpose: This code snippet uses UNION to combine data from your_first_table and your_second_table into a single result set. Duplicate rows are removed, making it suitable for merging datasets with unique entries.
 
-# Add a New Column to a Table
+## Add a New Column to a Table
 
 The alter_table() function is used to modify the structure of a table by adding a new column.
 
@@ -659,7 +638,7 @@ db.alter_table(add_column_query)
 
 Purpose: This query adds a new column your_new_column_name to your_table_name, enhancing the table's structure for additional data storage.
 
-# Rename a Column in a Table
+## Rename a Column in a Table
 
 The alter_table() function is also used to rename a column in an existing table.
 
@@ -673,7 +652,7 @@ db.alter_table(rename_column_query)
 
 Purpose: This query renames old_column_name to new_column_name and changes its data type to INT with AUTO_INCREMENT, if necessary.
 
-# Set a Default Value for a Column
+## Set a Default Value for a Column
 
 The alter_table() function can be used to set a default value for an existing column.
 
@@ -687,7 +666,7 @@ db.alter_table(default_value_query)
 
 Purpose: This query sets a default value of 0 for your_column_name in your_table_name, which helps maintain data consistency.
 
-# Change a Column's Data Type
+## Change a Column's Data Type
 
 
 The alter_table() function is used to change the data type of an existing column.
@@ -702,7 +681,7 @@ db.alter_table(change_data_type_query)
 
 Purpose: This query modifies your_column_name to have a SMALLINT data type, adjusting the column structure for the desired data format.
 
-# Update a Single Record in a Table
+## Update a Single Record in a Table
 
 The update_data() function can be used to update specific records in a table.
 
@@ -717,9 +696,9 @@ db.update_data(update_query, updated_values)
 
 Purpose: This code updates your_column_name with a new value for the record identified by record_id_column. This function is useful for targeted updates to maintain or correct data.
 
-## Code Explanations for Database Operations
+# Code Explanations for Database Operations
 
-# Update Multiple Records in Your Table
+## Update Multiple Records in Your Table
 
 This function updates multiple records in a table by specifying the new values and the unique identifiers for the records to be updated.
 
@@ -739,7 +718,7 @@ db.update_data(update_query, updated_values)
 
 Purpose: This code is used for batch updating records in a table, ensuring efficient updates of multiple rows in a single function call.
 
-# Alter Table Structure
+## Alter Table Structure
 
 This function modifies the structure of a table by altering column properties, such as removing a default value.
 
@@ -753,7 +732,7 @@ db.update_data(alter_query)
 
 Purpose: This command is essential for changing the schema of a table, allowing for flexible database structure management without dropping and recreating the table.
 
-# Create a View
+## Create a View
 
 This function creates a database view to present specific data from a table in a defined format.
 
@@ -771,7 +750,7 @@ db.update_data_view(create_view_query)
 
 Purpose: Creating views simplifies complex queries and enhances data security by allowing controlled access to specific data in a table.
 
-# Describe Table Structure
+## Describe Table Structure
 
 This function retrieves the structure of a specified table to help understand its schema.
 
@@ -788,7 +767,7 @@ print(table_structure)
 
 Purpose: Describing a table is crucial for checking column names, data types, and constraints, aiding in database design and debugging.
 
-# Drop a View
+## Drop a View
 
 This function deletes a view from the database.
 
@@ -802,7 +781,7 @@ db.drop_view(view_name)
 
 Purpose: Dropping a view is useful when it is no longer needed, helping maintain a clean and organized database environment.
 
-# Delete a Record
+## Delete a Record
 
 This function deletes specific records from a table based on a given condition.
 
@@ -817,7 +796,7 @@ db.delete_data(delete_query, delete_values)
 
 Purpose: Deleting records is important for data management, allowing the removal of outdated or irrelevant data.
 
-# Select Records with Conditions
+## Select Records with Conditions
 
 This function retrieves records from a table based on multiple conditions, including data type-specific filtering.
 
@@ -827,13 +806,13 @@ This function retrieves records from a table based on multiple conditions, inclu
 select_query = "SELECT * FROM your_table_name WHERE your_column_name_datatype_decimal_int_or_float BETWEEN %s AND %s AND your_column_name_datatype_anytype LIKE %s"
 result = db.select_with_conditions_with_out(select_query, (25, 35, 'A%'))
 
-# Note: Replace column names with actual names (e.g., age, salary) and data types (CHAR, INT, etc.)
-
 ```
+# Note:
+Replace column names with actual names (e.g., age, salary) and data types (CHAR, INT, etc.)
 
 Purpose: This query is valuable for filtering records using complex conditions, which is essential for targeted data analysis and reporting.
 
-# Close Database Connection
+## Close Database Connection
 
 This function safely closes the connection to the database.
 ```python
