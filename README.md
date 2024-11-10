@@ -824,3 +824,12 @@ db.close_connection()
 
 Purpose: Closing the database connection ensures that resources are released, preventing potential memory leaks and maintaining database integrity.
 
+
+
+## How to Contribute
+We welcome contributions! Please read our [CONTRIBUTING.md](https://github.com/Manti-Rashee/MySQL-DataBridge/blob/main/CONTRIBUTING.md) to get started.
+
+
+
+
+
