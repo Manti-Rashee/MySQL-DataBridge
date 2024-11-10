@@ -74,3 +74,13 @@ If you have questions or need assistance, feel free to:
   Contact the maintainers directly at [rsm878yourkhan@gmail.com].
 
 Thank you for contributing to MySQL-DataBridge and helping us build a stronger, more robust project!
+
+
+
+## Join the Discussion
+Have ideas or questions? We encourage you to join the conversation on our [GitHub Discussions page](https://github.com/Manti-Rashee/MySQL-DataBridge/discussions).
+
+
+
+
+
