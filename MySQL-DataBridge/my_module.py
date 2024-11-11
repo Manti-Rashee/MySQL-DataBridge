@@ -2,98 +2,106 @@ import mysql.connector
 from mysql.connector import Error
 
 class MySQLModule:
-    def __init__(self, hostname='localhost', username='root', password='', database=None):
+    def __init__(self):
+        self.hostname = ''
+        self.username = ''
+        self.password = ''
+        self.database = ''
+        self.connection = mysql.connector.connect()
+
+    # Function to connect to the MySQL database
+    def connect_to_database(self,hostname:str, username:str, password:str, database:str=None):
         self.hostname = hostname
         self.username = username
         self.password = password
         self.database = database
-        self.connection = None
-
-    # Function to connect to the MySQL database
-    def connect_to_database(self):
+        
         try:
-            self.connection = mysql.connector.connect(
-                host=self.hostname,
-                user=self.username,
-                password=self.password,
-                database=self.database
-            )
-            if self.connection.is_connected():
-                db_info = self.connection.get_server_info()
-                print(f"Connected to MySQL Server version {db_info}")
-                if self.database:
-                    print(f"Connected to database: {self.database}")
-                return self.connection
+            if not self.connection.is_connected():
+                self.connection = mysql.connector.connect(
+                    host=self.hostname,
+                    user=self.username,
+                    password=self.password,
+                    database=self.database)
+            return self.connection
         except Error as e:
-            print(f"Error connecting to MySQL: {e}")
-            return None
+            raise Error(e)
 
     # Function to close the connection safely
     def close_connection(self):
-        if self.connection and self.connection.is_connected():
+        if self.connection.is_connected():
             self.connection.close()
-            print("MySQL connection closed")
 
+    # function to show you your all databases
+    def get_databases(self):
+        try:
+            cursor = self.connection.cursor()
+            get_databases_query = "SHOW DATABASES"
+            cursor.execute(get_databases_query)
+            databases = cursor.fetchall()
+            return databases
+        except Error as e:
+            return e
+        
     # functoin to check first the database is it exists or not then alow to create 
-    def check_database_exists(self, database_name):
+    def is_database_exists(self, database_name:str):
         try:
             cursor = self.connection.cursor()
             cursor.execute(f"SHOW DATABASES LIKE '{database_name}'")
             result = cursor.fetchone()
             return result is not None
         except Error as e:
-            print(f"Error checking database: {e}")
-            return False
+            raise Error(e)
 
     # function to create basically the database
-    def create_database(self, database_name):
-        if self.check_database_exists(database_name):
-            print(f"Database '{database_name}' already exists. Creation not allowed.")
+    def create_database(self, database_name:str):
+        if self.is_database_exists(database_name):
+            raise Error('The Database Exists Try New One')
         else:
             try:
                 cursor = self.connection.cursor()
                 cursor.execute(f"CREATE DATABASE {database_name}")
-                print(f"Database '{database_name}' created successfully.")
+                return True
             except Error as e:
-                print(f"Error creating database: {e}")
-
+                raise Error(e)
+            
+    # function to Delete the database
+    def delete_database(self, database_name:str):
+        if self.is_database_exists(database_name):
+            try:
+                cursor = self.connection.cursor()
+                cursor.execute(f"DROP DATABASE {database_name}")
+                return True
+            except Error as e:
+                raise Error(e)
+        else:
+            raise Error('There is no such Database that you want to Delete ')
+    
     # functoin to check first the table is it exists or not then alow to create 
-    def check_table_exists(self, table_name):
+    def is_table_exists(self, table_name):
         try:
             cursor = self.connection.cursor()
             cursor.execute(f"SHOW TABLES LIKE '{table_name}'")
             result = cursor.fetchone()
             return result is not None
         except Error as e:
-            print(f"Error checking table: {e}")
-            return False
-
+            raise Error(e)
+        
     # function to create basically the tables
     def create_table(self, create_table_query, table_name):
-        if self.check_table_exists(table_name):
-            print(f"Table '{table_name}' already exists in the database. Creation not allowed.")
+        if self.is_table_exists(table_name):
+            raise Error('The Table Exists Try New One')
         else:
             try:
                 cursor = self.connection.cursor()
                 cursor.execute(create_table_query)
-                print(f"Table '{table_name}' created successfully.")
+                return True
             except Error as e:
-                print(f"Error creating table: {e}")
+                raise Error(e)
 
-    # function to show you your all databases
-    def show_databases(self):
-        try:
-            cursor = self.connection.cursor()
-            show_databases_query = "SHOW DATABASES"
-            cursor.execute(show_databases_query)
-            databases = cursor.fetchall()
-            return databases
-        except Error as e:
-            print(f"Error fetching databases: {e}")
-            return None
 
     # Function to show tables in a specific database based on user input
-    def show_tables(self):
+    def get_tables(self):
         try:
             # Ask the user for the database name
             database_name = input("Which database's tables would you like to see? Give here in the enter here the database name here ans press enter : ")
